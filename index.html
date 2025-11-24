@@ -1,5 +1,6 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,512 +9,622 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@300;400;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    body{font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; color:#222}
-    h1,h2,h3{font-family:'Montserrat',sans-serif}
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      color: #222
+    }
 
-      /* Global button style */
-  .btn {
-    background-color: teal !important;
-    color: white !important;
-    border: none;
-    border-radius: 20px; 
-  }
-  .btn:hover {
-    opacity: 0.9; 
-  }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', sans-serif
+    }
 
-    .navbar{backdrop-filter: blur(6px);background:rgba(236,243,247,0.85)}
-    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active{color:teal !important;}
+    /* Global button style */
+    .btn {
+      background-color: teal !important;
+      color: white !important;
+      border: none;
+      border-radius: 20px;
+    }
 
-    .hero{min-height:70vh; display:flex; align-items:center; color:#c9e5f0; position:relative; overflow:hidden; background-size:cover; background-position:center;}
-    .hero::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.05));}
-    .hero-content{position:relative; z-index:2}
+    .btn:hover {
+      opacity: 0.9;
+    }
 
-    .badge-accent{background:linear-gradient(90deg,#e4ad38,#e4ad38); color:#ffffff}
+    .navbar {
+      backdrop-filter: blur(6px);
+      background: rgba(236, 243, 247, 0.85)
+    }
 
-    .spot-card img, .hotel-card img, .food-card img{height:200px; object-fit:cover}
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: teal !important;
+    }
 
-    .masonry{column-count:3; column-gap:1rem}
-    .masonry-item{display:inline-block; width:100%; margin:0 0 1rem}
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      color: #c9e5f0;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
 
-    @media (max-width:991px){.masonry{column-count:2}}
-    @media (max-width:575px){.masonry{column-count:1}}
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05));
+    }
 
-    #backToTop{position:fixed; right:20px; bottom:20px; z-index:1050}
-    footer{background:#0b1320;color:#dbeafe}
-    
-    .map-responsive{overflow:hidden; padding-bottom:56.25%; position:relative; height:0;}
-    .map-responsive iframe{left:0; top:0; height:100%; width:100%; position:absolute;}
-    .btn-teal{background-color:#008080;color:white;border:none;}
-    .btn-teal:hover{background-color:#006d6d;}
+    .hero-content {
+      position: relative;
+      z-index: 2
+    }
+
+    .badge-accent {
+      background: linear-gradient(90deg, #e4ad38, #e4ad38);
+      color: #ffffff
+    }
+
+    .spot-card img,
+    .hotel-card img,
+    .food-card img {
+      height: 200px;
+      object-fit: cover
+    }
+
+    .masonry {
+      column-count: 3;
+      column-gap: 1rem
+    }
+
+    .masonry-item {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 1rem
+    }
+
+    @media (max-width:991px) {
+      .masonry {
+        column-count: 2
+      }
+    }
+
+    @media (max-width:575px) {
+      .masonry {
+        column-count: 1
+      }
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1050
+    }
+
+    footer {
+      background: #0b1320;
+      color: #dbeafe
+    }
+
+    .map-responsive {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+    }
+
+    .map-responsive iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+
+    .btn-teal {
+      background-color: #008080;
+      color: white;
+      border: none;
+    }
+
+    .btn-teal:hover {
+      background-color: #006d6d;
+    }
   </style>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
 
-<!-- NAVBAR -->
-<nav id="mainNav" class="navbar navbar-light sticky-top shadow-sm">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a class="navbar-brand d-flex align-items-center" href="#home">
-      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=80&q=60&auto=format&fit=crop" 
-           alt="Alegria" width="42" height="42" class="rounded-circle me-2">
-      <div>
-        <div style="font-weight:700">Alegria</div>
-        <small class="text-muted">Cebu, Philippines</small>
-      </div>
-    </a>
-
-    <div class="d-flex align-items-center">
-      <form class="d-none d-md-flex me-2" role="search" style="width: 180px;">
-        <input class="form-control form-control-sm rounded-pill" type="search" placeholder="Search..." aria-label="Search">
-      </form>
-
-      <div class="dropdown">
-        <button class="btn" type="button" id="menuToggle" data-bs-toggle="dropdown" aria-expanded="false" style="color:rgb(49, 46, 46); border:none; font-size:1.5rem;">
-          <i class="bi bi-list"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="menuToggle" style="background-color:#064346;">
-          <li><a class="dropdown-item" href="#home" style="color: #9bd8d8;">Home</a></li>
-          <li><a class="dropdown-item" href="#about" style="color: #9bd8d8;">About</a></li>
-          <li><a class="dropdown-item" href="#spots" style="color: #9bd8d8;">Tourist Spots</a></li>
-          <li><a class="dropdown-item" href="#hotels" style="color:#9bd8d8;">Hotels</a></li>
-          <li><a class="dropdown-item" href="#food" style="color:#9bd8d8;">Food</a></li>
-          <li><a class="dropdown-item" href="#events" style="color:#9bd8d8;">Events & Festivals</a></li>
-          <li><a class="dropdown-item" href="#activities" style="color:#9bd8d8;">Things To Do</a></li>
-          <li><a class="dropdown-item" href="#gallery" style="color:#9bd8d8;">Gallery</a></li>
-          <li><a class="dropdown-item" href="#plan" style="color:#9bd8d8;">Plan Trip</a></li>
-          <li><a class="dropdown-item" href="#contact" style="color:#9bd8d8;">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header id="home" class="hero text-white" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=60');">
-  <div class="container hero-content">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <span class="badge badge-accent px-3 py-2 mb-3">Discover Alegria</span>
-        <h1 class="display-5 fw-bold">Alegria, Cebu — A hidden tropical gem</h1>
-        <p class="lead mb-4">From waterfalls tucked in lush forests to warm sandy coves — explore nature, food, and culture in Alegria.</p>
-        <div class="d-flex gap-2">
-          <a class="btn btn-teal btn-lg" href="#spots"><i class="bi bi-compass-fill me-1"></i>Explore Spots</a>
-          <a class="btn btn-teal btn-lg" href="#hotels"><i class="bi bi-house-door-fill me-1"></i>Find a Hotel</a>
-          <a class="btn btn-teal btn-lg" href="#food"><i class="bi bi-egg-fried me-1"></i>Taste Local Food</a>
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-light sticky-top shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=80&q=60&auto=format&fit=crop"
+          alt="Alegria" width="42" height="42" class="rounded-circle me-2">
+        <div>
+          <div style="font-weight:700">Alegria</div>
+          <small class="text-muted">Cebu, Philippines</small>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+      </a>
 
-<!-- ABOUT -->
-<section id="about" class="py-5">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-6">
-        <h2>About Alegria</h2>
-        <p class="text-muted">Alegria is a coastal town in Cebu known for waterfalls, scenic views, and local culture. This page showcases attractions, food, lodging, events, and tips for your visit.</p>
-        <ul class="list-unstyled">
-          <li><strong>Province:</strong> Cebu</li>
-          <li><strong>Region:</strong> Central Visayas</li>
-          <li><strong>Language:</strong> Cebuano & Filipino</li>
-          <li><strong>Best time to visit:</strong> November to May (dry season)</li>
-        </ul>
-        <div class="mt-3">
-          <a class="btn btn-teal" href="#plan">How to get there</a>
-          <a class="btn btn-teal" href="#spots">See Tourist Spots</a>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <h5>Location</h5>
-        <div class="map-responsive rounded shadow-sm mb-3">
-          <iframe src="https://www.google.com/maps?q=Alegria,Cebu,Philippines&output=embed" style="border:0;"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="d-flex align-items-center">
+        <form class="d-none d-md-flex me-2" role="search" style="width: 180px;">
+          <input class="form-control form-control-sm rounded-pill" type="search" placeholder="Search..."
+            aria-label="Search">
+        </form>
 
-<!-- TOURIST SPOTS -->
-<section id="spots" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4">Top 6 Tourist Spots</h2>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="kawasan.webp" class="card-img-top" alt="Kawasan Falls">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Kawasan Falls Canyoneering</h5>
-            <p class="card-text text-muted"> A three-stage cascade of clear turquoise water from mountain springs.</p>
-           <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="montpellier.webp" class="card-img-top" alt="Montpellier waterfall">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Montpellier Waterfall</h5>
-            <p class="card-text text-muted">Tucked amid a lush, verdant landscape, this hidden waterfall cascades into a crystal-clear pool.</p>
-           <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="libo.jpg" class="card-img-top" alt="Libo Hills">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Libo Hills</h5>
-            <p class="card-text text-muted">A picturesque highland area often referred to as the Little Baguio of Alegria .</p>
-            <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="park.jpg" class="card-img-top" alt="Alegria Park">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Alegria Heritage Park</h5>
-            <p class="card-text text-muted">Experience the rich history and cultural wonders of Cebu at Alegria Heritage Park .</p>
-          <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="cancalanog.jpg" class="card-img-top" alt="Cancalanog Falls">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Cancalanog Falls</h5>
-            <p class="card-text text-muted">A gem jumper paradise waterfall spot at Alegria Cebu .</p>
-         <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card spot-card h-100">
-          <img src="lanaya.jpg" class="card-img-top" alt="Mt. Lanaya">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Mt. Lanaya</h5>
-            <p class="card-text text-muted">A popular hiking and camping destination known for its rugged terrain and scenic views  .</p>
-           <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOTELS & ACCOMMODATIONS -->
-<section id="hotels" class="py-5" style="background-color: #ffffff;">
-  <div class="container">
-    <h2 class="mb-4 text-left" style="color: rgb(0, 0, 0); font-weight: 600;">Best Places to Stay in Alegria</h2>
-    <div class="row g-4">
-
-      <!-- Hotel 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card hotel-card h-100 border-0 shadow-sm">
-          <img src="beach house.jpg" class="card-img-top" alt="Alegria Water Front Beach House">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Alegria Water Front Beach House</h5>
-            <p class="card-text text-muted mb-1">₱3,312</p>
-            <p class="card-text text-muted mb-1">"The house keeper was amazing."</p>
-            <p style="color: gold;">⭐⭐⭐⭐☆</p>
-           <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-6 col-lg-4">
-        <div class="card hotel-card h-100 border-0 shadow-sm">
-          <img src="malabuyoc.jpg" class="card-img-top" alt="Malabuyoc Resort">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Malabuyoc Resort</h5>
-            <p class="card-text text-muted mb-1">₱2,176</p>
-            <p class="card-text text-muted mb-1">"Their interior is soft, clean and cozy."</p>
-            <p style="color: gold;">⭐⭐⭐⭐☆</p>
-         <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card hotel-card h-100 border-0 shadow-sm">
-          <img src="cuestas.jpg" class="card-img-top" alt="Cuestas Beach">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Cuestas Beach Resort & Restau</h5>
-            <p class="card-text text-muted mb-1">₱1,431</p>
-            <p class="card-text text-muted mb-1">"He has a full-time chef and assistants in the kitchen."</p>
-            <p style="color: gold;">⭐⭐⭐⭐☆</p>
-        <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- LOCAL FOOD -->
-<section id="food" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4 text-left" style="color: rgb(0, 0, 0);">Local Food</h2>
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="lechon.jpg" class="card-img-top" alt="Lechon Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Lechon Cebu</h5>
-            <p class="card-text text-muted">World-famous roasted pig specialty of Cebu.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="puso.jpg" class="card-img-top" alt="Puso Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Puso</h5>
-            <p class="card-text text-muted">Steamed rice wrapped in woven coconut leaves.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="danggit.jpg" class="card-img-top" alt="Danggit Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Danggit</h5>
-            <p class="card-text text-muted">Small, salted, and sun-dried rabbitfish loved by locals.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="ngohlong.jpg" class="card-img-top" alt="Ngohlong Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Ngohlong</h5>
-            <p class="card-text text-muted">Spring roll filled with ground pork and shrimp, seasoned perfectly.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="kinilaw.jpg" class="card-img-top" alt="Kinilaw Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Kinilaw</h5>
-            <p class="card-text text-muted">Raw fish cured in vinegar with onions, chili, and ginger.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card food-card h-100 shadow-sm border-0">
-          <img src="balbacua.webp" class="card-img-top" alt="Balbacua Cebu">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title" style="color: teal;">Balbacua</h5>
-            <p class="card-text text-muted">Rich, slow-cooked beef stew made with oxtail and tendons.</p>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div>
-</section>
-
-<!-- THINGS TO DO -->
-<section id="activities" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="mb-4 text-left fw-bold">Things To Do</h2>
-    <div class="row g-4 text-center">
-      
-      <!-- Activity 1 -->
-      <div class="col-md-4">
-        <div class="card p-4 h-100 shadow-sm activity-card border-0">
-          <div class="icon mb-3">
-            <i class="bi bi-map-fill fs-1 text-teal"></i>
-          </div>
-          <h5 class="fw-semibold">Hiking</h5>
-          <p class="text-muted">Explore scenic trails and enjoy panoramic views of Alegria’s lush mountains.</p>
-        </div>
-      </div>
-
-      <!-- Activity 2 -->
-      <div class="col-md-4">
-        <div class="card p-4 h-100 shadow-sm activity-card border-0">
-          <div class="icon mb-3">
-            <i class="bi bi-water fs-1 text-teal"></i>
-          </div>
-          <h5 class="fw-semibold">Diving</h5>
-          <p class="text-muted">Discover vibrant marine life and coral reefs in Alegria’s crystal-clear waters.</p>
-        </div>
-      </div>
-
-      <!-- Activity 3 -->
-      <div class="col-md-4">
-        <div class="card p-4 h-100 shadow-sm activity-card border-0">
-          <div class="icon mb-3">
-            <i class="bi bi-sun fs-1 text-teal"></i>
-          </div>
-          <h5 class="fw-semibold">Beach Activities</h5>
-          <p class="text-muted">Relax, swim, or join local beach games for a refreshing coastal escape.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- GALLERY -->
-<section id="gallery" style="padding: 60px 0; background-color: white;">
-  <div class="container text-left">
-    <h2 class="mb-4 fw-bold" style="color: rgb(0, 0, 0);">Gallery</h2>
-
-    <div class="row" style="margin: 0;">
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="landscapes.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="landscape.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="park.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="cancalanog.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="cuestas.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="danggit.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="kinilaw.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="lanaya.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="lechon.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="libo.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="malabuyoc.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-      <div class="col-md-3 col-sm-6 mb-3 p-1">
-        <img src="montpellier.webp" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PLAN YOUR TRIP -->
-<section id="plan" style="padding:60px 0; background-color:#f8f9fa;">
-  <div class="container text-center">
-    <h2 class="mb-4 fw-bold" style="color:rgb(0, 0, 0);">Plan Your Trip</h2>
-    <div class="row g-4 justify-content-center">
-
-      <div class="col-md-5">
-        <div style="background:white; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:25px;">
-          <h5 class="fw-semibold" style="color:teal;">Travel Tips</h5>
-          <ul style="text-align:left; margin-top:15px;">
-            <li>Best time to visit: <b>November to May</b></li>
-            <li>Bring sunscreen, hat, and comfortable shoes</li>
-            <li>Respect local customs and nature</li>
-            <li>Book hotels in advance during peak season</li>
+        <div class="dropdown">
+          <button class="btn" type="button" id="menuToggle" data-bs-toggle="dropdown" aria-expanded="false"
+            style="color:rgb(49, 46, 46); border:none; font-size:1.5rem;">
+            <i class="bi bi-list"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="menuToggle"
+            style="background-color:#064346;">
+            <li><a class="dropdown-item" href="#home" style="color: #9bd8d8;">Home</a></li>
+            <li><a class="dropdown-item" href="#about" style="color: #9bd8d8;">About</a></li>
+            <li><a class="dropdown-item" href="#spots" style="color: #9bd8d8;">Tourist Spots</a></li>
+            <li><a class="dropdown-item" href="#hotels" style="color:#9bd8d8;">Hotels</a></li>
+            <li><a class="dropdown-item" href="#food" style="color:#9bd8d8;">Food</a></li>
+            <li><a class="dropdown-item" href="#events" style="color:#9bd8d8;">Events & Festivals</a></li>
+            <li><a class="dropdown-item" href="#activities" style="color:#9bd8d8;">Things To Do</a></li>
+            <li><a class="dropdown-item" href="#gallery" style="color:#9bd8d8;">Gallery</a></li>
+            <li><a class="dropdown-item" href="#plan" style="color:#9bd8d8;">Plan Trip</a></li>
+            <li><a class="dropdown-item" href="#contact" style="color:#9bd8d8;">Contact</a></li>
           </ul>
         </div>
       </div>
+    </div>
+  </nav>
 
-      <div class="col-md-5">
-        <div style="background:white; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:25px;">
-          <h5 class="fw-semibold" style="color:teal;">Weather</h5>
-          <p style="margin-top:15px; color:#555;">Average temperature: <b>26°C – 32°C</b></p>
-          <p style="color:#555;">Occasional rain showers from <b>June to October</b></p>
+  <!-- HERO -->
+  <header id="home" class="hero text-white"
+    style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=60');">
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge badge-accent px-3 py-2 mb-3">Discover Alegria</span>
+          <h1 class="display-5 fw-bold">Alegria, Cebu — A hidden tropical gem</h1>
+          <p class="lead mb-4">From waterfalls tucked in lush forests to warm sandy coves — explore nature, food, and
+            culture in Alegria.</p>
+          <div class="d-flex gap-2">
+            <a class="btn btn-teal btn-lg" href="#spots"><i class="bi bi-compass-fill me-1"></i>Explore Spots</a>
+            <a class="btn btn-teal btn-lg" href="#hotels"><i class="bi bi-house-door-fill me-1"></i>Find a Hotel</a>
+            <a class="btn btn-teal btn-lg" href="#food"><i class="bi bi-egg-fried me-1"></i>Taste Local Food</a>
+          </div>
         </div>
       </div>
-
     </div>
+  </header>
 
-    <a href="#contact" class="btn mt-4" 
-       style="background-color:teal; color:white; border:none; border-radius:30px; padding:10px 30px;">
-       Contact for Assistance
-    </a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="padding:60px 0; background-color:white;">
-  <div class="container" style="max-width:700px;">
-    <h2 class="mb-4 text-left fw-bold" style="color:rgb(8, 8, 8);">Contact Us</h2>
-
-    <div style="background-color:#f8f9fa; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:30px;">
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label fw-semibold">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Your Name"
-                 style="border-radius:10px; padding:10px;">
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2>About Alegria</h2>
+          <p class="text-muted">Alegria is a coastal town in Cebu known for waterfalls, scenic views, and local culture.
+            This page showcases attractions, food, lodging, events, and tips for your visit.</p>
+          <ul class="list-unstyled">
+            <li><strong>Province:</strong> Cebu</li>
+            <li><strong>Region:</strong> Central Visayas</li>
+            <li><strong>Language:</strong> Cebuano & Filipino</li>
+            <li><strong>Best time to visit:</strong> November to May (dry season)</li>
+          </ul>
+          <div class="mt-3">
+            <a class="btn btn-teal" href="#plan">How to get there</a>
+            <a class="btn btn-teal" href="#spots">See Tourist Spots</a>
+          </div>
         </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label fw-semibold">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="your@email.com"
-                 style="border-radius:10px; padding:10px;">
+        <div class="col-lg-6">
+          <h5>Location</h5>
+          <div class="map-responsive rounded shadow-sm mb-3">
+            <iframe src="https://www.google.com/maps?q=Alegria,Cebu,Philippines&output=embed"
+              style="border:0;"></iframe>
+          </div>
         </div>
-
-        <div class="mb-3">
-          <label for="message" class="form-label fw-semibold">Message</label>
-          <textarea class="form-control" id="message" rows="4" placeholder="Your Message"
-                    style="border-radius:10px; padding:10px;"></textarea>
-        </div>
-
-        <div class="text-center">
-          <button type="submit" 
-                  style="background-color:teal; color:white; border:none; border-radius:30px; padding:10px 30px;">
-            Send Message
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- TOURIST SPOTS -->
+  <section id="spots" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4">Top 6 Tourist Spots</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="kawasan.webp" class="card-img-top" alt="Kawasan Falls">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Kawasan Falls Canyoneering</h5>
+              <p class="card-text text-muted"> A three-stage cascade of clear turquoise water from mountain springs.</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="montpellier.webp" class="card-img-top" alt="Montpellier waterfall">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Montpellier Waterfall</h5>
+              <p class="card-text text-muted">Tucked amid a lush, verdant landscape, this hidden waterfall cascades into
+                a crystal-clear pool.</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="libo.jpg" class="card-img-top" alt="Libo Hills">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Libo Hills</h5>
+              <p class="card-text text-muted">A picturesque highland area often referred to as the Little Baguio of
+                Alegria .</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="park.jpg" class="card-img-top" alt="Alegria Park">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Alegria Heritage Park</h5>
+              <p class="card-text text-muted">Experience the rich history and cultural wonders of Cebu at Alegria
+                Heritage Park .</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="cancalanog.jpg" class="card-img-top" alt="Cancalanog Falls">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Cancalanog Falls</h5>
+              <p class="card-text text-muted">A gem jumper paradise waterfall spot at Alegria Cebu .</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card spot-card h-100">
+            <img src="lanaya.jpg" class="card-img-top" alt="Mt. Lanaya">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Mt. Lanaya</h5>
+              <p class="card-text text-muted">A popular hiking and camping destination known for its rugged terrain and
+                scenic views .</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOTELS & ACCOMMODATIONS -->
+  <section id="hotels" class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+      <h2 class="mb-4 text-left" style="color: rgb(0, 0, 0); font-weight: 600;">Best Places to Stay in Alegria</h2>
+      <div class="row g-4">
+
+        <!-- Hotel 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card hotel-card h-100 border-0 shadow-sm">
+            <img src="beach house.jpg" class="card-img-top" alt="Alegria Water Front Beach House">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Alegria Water Front Beach House</h5>
+              <p class="card-text text-muted mb-1">₱3,312</p>
+              <p class="card-text text-muted mb-1">"The house keeper was amazing."</p>
+              <p style="color: gold;">⭐⭐⭐⭐☆</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card hotel-card h-100 border-0 shadow-sm">
+            <img src="malabuyoc.jpg" class="card-img-top" alt="Malabuyoc Resort">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Malabuyoc Resort</h5>
+              <p class="card-text text-muted mb-1">₱2,176</p>
+              <p class="card-text text-muted mb-1">"Their interior is soft, clean and cozy."</p>
+              <p style="color: gold;">⭐⭐⭐⭐☆</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card hotel-card h-100 border-0 shadow-sm">
+            <img src="cuestas.jpg" class="card-img-top" alt="Cuestas Beach">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Cuestas Beach Resort & Restau</h5>
+              <p class="card-text text-muted mb-1">₱1,431</p>
+              <p class="card-text text-muted mb-1">"He has a full-time chef and assistants in the kitchen."</p>
+              <p style="color: gold;">⭐⭐⭐⭐☆</p>
+              <a href="#" class="btn btn-teal mt-auto" style="width: 150px;">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<!-- BACK TO TOP BUTTON -->
-<button id="backToTop" class="btn rounded-circle shadow d-none" title="Back to top" style="background-color:#008080; color:white;"><i class="bi bi-arrow-up"></i></button>
+  <!-- LOCAL FOOD -->
+  <section id="food" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-left" style="color: rgb(0, 0, 0);">Local Food</h2>
+      <div class="row g-4">
 
-<!-- FOOTER -->
-<footer class="py-4 text-center">
-  <div class="container">
-    <p class="mb-0">&copy; <span id="year"></span> Alegria, Cebu. All rights reserved.</p>
-  </div>
-</footer>
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="lechon.jpg" class="card-img-top" alt="Lechon Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Lechon Cebu</h5>
+              <p class="card-text text-muted">World-famous roasted pig specialty of Cebu.</p>
+            </div>
+          </div>
+        </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', ()=>{if(window.scrollY>400) backBtn.classList.remove('d-none'); else backBtn.classList.add('d-none');});
-  backBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'})); 
-</script>
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="puso.jpg" class="card-img-top" alt="Puso Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Puso</h5>
+              <p class="card-text text-muted">Steamed rice wrapped in woven coconut leaves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="danggit.jpg" class="card-img-top" alt="Danggit Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Danggit</h5>
+              <p class="card-text text-muted">Small, salted, and sun-dried rabbitfish loved by locals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="ngohlong.jpg" class="card-img-top" alt="Ngohlong Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Ngohlong</h5>
+              <p class="card-text text-muted">Spring roll filled with ground pork and shrimp, seasoned perfectly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="kinilaw.jpg" class="card-img-top" alt="Kinilaw Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Kinilaw</h5>
+              <p class="card-text text-muted">Raw fish cured in vinegar with onions, chili, and ginger.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card food-card h-100 shadow-sm border-0">
+            <img src="balbacua.webp" class="card-img-top" alt="Balbacua Cebu">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title" style="color: teal;">Balbacua</h5>
+              <p class="card-text text-muted">Rich, slow-cooked beef stew made with oxtail and tendons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THINGS TO DO -->
+  <section id="activities" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-left fw-bold">Things To Do</h2>
+      <div class="row g-4 text-center">
+
+        <!-- Activity 1 -->
+        <div class="col-md-4">
+          <div class="card p-4 h-100 shadow-sm activity-card border-0">
+            <div class="icon mb-3">
+              <i class="bi bi-map-fill fs-1 text-teal"></i>
+            </div>
+            <h5 class="fw-semibold">Hiking</h5>
+            <p class="text-muted">Explore scenic trails and enjoy panoramic views of Alegria’s lush mountains.</p>
+          </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="col-md-4">
+          <div class="card p-4 h-100 shadow-sm activity-card border-0">
+            <div class="icon mb-3">
+              <i class="bi bi-water fs-1 text-teal"></i>
+            </div>
+            <h5 class="fw-semibold">Diving</h5>
+            <p class="text-muted">Discover vibrant marine life and coral reefs in Alegria’s crystal-clear waters.</p>
+          </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="col-md-4">
+          <div class="card p-4 h-100 shadow-sm activity-card border-0">
+            <div class="icon mb-3">
+              <i class="bi bi-sun fs-1 text-teal"></i>
+            </div>
+            <h5 class="fw-semibold">Beach Activities</h5>
+            <p class="text-muted">Relax, swim, or join local beach games for a refreshing coastal escape.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GALLERY -->
+  <section id="gallery" style="padding: 60px 0; background-color: white;">
+    <div class="container text-left">
+      <h2 class="mb-4 fw-bold" style="color: rgb(0, 0, 0);">Gallery</h2>
+
+      <div class="row" style="margin: 0;">
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="landscapes.jpg" alt="Gallery"
+            style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="landscape.jpg" alt="Gallery"
+            style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="park.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="cancalanog.jpg" alt="Gallery"
+            style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="cuestas.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="danggit.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="kinilaw.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="lanaya.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="lechon.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="libo.jpg" alt="Gallery" style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="malabuyoc.jpg" alt="Gallery"
+            style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-3 p-1">
+          <img src="montpellier.webp" alt="Gallery"
+            style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN YOUR TRIP -->
+  <section id="plan" style="padding:60px 0; background-color:#f8f9fa;">
+    <div class="container text-center">
+      <h2 class="mb-4 fw-bold" style="color:rgb(0, 0, 0);">Plan Your Trip</h2>
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-5">
+          <div style="background:white; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:25px;">
+            <h5 class="fw-semibold" style="color:teal;">Travel Tips</h5>
+            <ul style="text-align:left; margin-top:15px;">
+              <li>Best time to visit: <b>November to May</b></li>
+              <li>Bring sunscreen, hat, and comfortable shoes</li>
+              <li>Respect local customs and nature</li>
+              <li>Book hotels in advance during peak season</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div style="background:white; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:25px;">
+            <h5 class="fw-semibold" style="color:teal;">Weather</h5>
+            <p style="margin-top:15px; color:#555;">Average temperature: <b>26°C – 32°C</b></p>
+            <p style="color:#555;">Occasional rain showers from <b>June to October</b></p>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="#contact" class="btn mt-4"
+        style="background-color:teal; color:white; border:none; border-radius:30px; padding:10px 30px;">
+        Contact for Assistance
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding:60px 0; background-color:white;">
+    <div class="container" style="max-width:700px;">
+      <h2 class="mb-4 text-left fw-bold" style="color:rgb(8, 8, 8);">Contact Us</h2>
+
+      <div style="background-color:#f8f9fa; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:30px;">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label fw-semibold">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name"
+              style="border-radius:10px; padding:10px;">
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="your@email.com"
+              style="border-radius:10px; padding:10px;">
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label fw-semibold">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Your Message"
+              style="border-radius:10px; padding:10px;"></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit"
+              style="background-color:teal; color:white; border:none; border-radius:30px; padding:10px 30px;">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" class="btn rounded-circle shadow d-none" title="Back to top"
+    style="background-color:#008080; color:white;"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="mb-0">&copy; <span id="year"></span> Alegria, Cebu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { if (window.scrollY > 400) backBtn.classList.remove('d-none'); else backBtn.classList.add('d-none'); });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' })); 
+  </script>
 </body>
+
 </html>
